@@ -20,7 +20,6 @@ import { useRouter, usePathname } from 'next/navigation';
 import Contract from '../../public/Voting.json'
 // WAGMI
 import { readContract } from '@wagmi/core'
-import 'dotenv/config'
 const Header = () => {
   const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS
   const router = useRouter();

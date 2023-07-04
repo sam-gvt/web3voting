@@ -6,7 +6,6 @@ import Contract from '../../public/Voting.json';
 import WhiteListForm from '@/components/admin/WhisteListForm';
 import { createPublicClient, http } from 'viem';
 import { goerli } from 'viem/chains';
-import 'dotenv/config'
 import { useState, useEffect } from 'react';
 
 
@@ -26,7 +25,7 @@ const Admin = () => {
     const transport = http(`https://goerli.infura.io/v3/${process.env.INFURA_API_KEY}`)
     const client = createPublicClient({
         chain: goerli,
-        transport,
+        transport: http(),
     })
 
     const getAddressOwner = async () => {

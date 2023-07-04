@@ -14,7 +14,6 @@ import {
   } from '@chakra-ui/react'
 import Contract from '../../public/Voting.json';
 import { prepareWriteContract, writeContract } from '@wagmi/core';
-import 'dotenv/config'
 
 const WorkflowButton = () => {
 

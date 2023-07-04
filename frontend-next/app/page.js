@@ -4,7 +4,6 @@ import { Flex, Text, Heading, useToast } from '@chakra-ui/react';
 import { useAccount, useContractRead } from 'wagmi';
 import { useRouter } from 'next/navigation';
 import Contract from '../public/Voting.json'
-import 'dotenv/config'
 import { useState, useEffect } from 'react';
 
 

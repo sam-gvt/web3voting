@@ -9,7 +9,6 @@ import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import Contract from '../../public/Voting.json'
 import { readContract,prepareWriteContract, writeContract } from '@wagmi/core'
-import 'dotenv/config'
 
 const addproposal = () => {
     const { isConnected, address : addressAccount } = useAccount()
@@ -19,7 +18,7 @@ const addproposal = () => {
     const transport = http(`https://goerli.infura.io/v3/${process.env.INFURA_API_KEY}`)
     const client = createPublicClient({
         chain: goerli,
-        transport
+        transport: http(),
     })
     const toast = useToast()
     // Events
