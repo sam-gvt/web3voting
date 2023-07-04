@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import Contract from '../../public/Voting.json'
 import { readContract,prepareWriteContract, writeContract } from '@wagmi/core'
-
+import 'dotenv/config'
 
 const votingpage = () => {
     const { isConnected, address : addressAccount } = useAccount()

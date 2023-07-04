@@ -5,7 +5,7 @@ import {createPublicClient, http, parseAbiItem } from 'viem';
 import { goerli } from 'viem/chains';
 import Contract from '../../public/Voting.json';
 import { useState, useEffect } from 'react';
-
+import 'dotenv/config'
 
 const Winner = () => {
 

@@ -6,7 +6,7 @@ import Contract from '../../public/Voting.json';
 import WhiteListForm from '@/components/admin/WhisteListForm';
 import { createPublicClient, http } from 'viem';
 import { goerli } from 'viem/chains';
-
+import 'dotenv/config'
 import { useState, useEffect } from 'react';
 
 
