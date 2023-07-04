@@ -18,7 +18,7 @@ import { infuraProvider } from 'wagmi/providers/infura'
 const { chains, publicClient } = configureChains(
   [goerli],
   [
-    infuraProvider({ apiKey: 'c37e4705ebff4465bcd87cb0368be40c' }),
+    // infuraProvider({ apiKey: 'c37e4705ebff4465bcd87cb0368be40c' }),
     publicProvider()
   ]
 );
