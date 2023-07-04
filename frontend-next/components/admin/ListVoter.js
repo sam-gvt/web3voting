@@ -1,7 +1,7 @@
 import {List, ListIcon, ListItem, Container, Text } from '@chakra-ui/react';
 import {CheckCircleIcon, RepeatIcon, SpinnerIcon} from '@chakra-ui/icons';
 
-import { createPublicClient, https, parseAbiItem } from 'viem'
+import { createPublicClient, http, parseAbiItem } from 'viem'
 import { goerli } from 'viem/chains'
 import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
@@ -10,9 +10,10 @@ import { v4 as uuidv4 } from 'uuid';
 const ListVoter = ({newAddressVoterAdd, setNewAddressVoterAdd}) => {
 
     // Create client for Viem
+    const transport = http(`https://goerli.infura.io/v3/${process.env.INFURA_API_KEY}`)
     const client = createPublicClient({
         chain: goerli,
-        transport: https(),
+        transport: http(transport),
     })
 
     // Events

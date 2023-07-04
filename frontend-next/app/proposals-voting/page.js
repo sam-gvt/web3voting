@@ -3,7 +3,7 @@ import { useThemeContext } from "@/context/theme"
 import { Flex, useToast,FormControl, FormLabel, Input, Button, VStack,Text, Grid, 
          GridItem, Heading, OrderedList, ListItem, Card, CardBody } from '@chakra-ui/react'
 import { useAccount } from 'wagmi'
-import { createPublicClient, https, parseAbiItem } from 'viem'
+import { createPublicClient, http, parseAbiItem } from 'viem'
 import { goerli } from 'viem/chains'
 import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
@@ -16,9 +16,10 @@ const addproposal = () => {
     const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS
     const { workflowStatus, setWorkflowStatus } = useThemeContext();
     // Create client for Viem
+    const transport = http(`https://goerli.infura.io/v3/${process.env.INFURA_API_KEY}`)
     const client = createPublicClient({
         chain: goerli,
-        transport: https(),
+        transport: http(transport),
     })
     const toast = useToast()
     // Events

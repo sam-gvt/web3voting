@@ -4,7 +4,7 @@ import { Flex, Heading } from '@chakra-ui/react';
 import { useAccount } from 'wagmi';
 import Contract from '../../public/Voting.json';
 import WhiteListForm from '@/components/admin/WhisteListForm';
-import { createPublicClient, https } from 'viem';
+import { createPublicClient, http } from 'viem';
 import { goerli } from 'viem/chains';
 
 import { useState, useEffect } from 'react';
@@ -21,11 +21,12 @@ const Admin = () => {
     const [isAdmin, setIsAdmin] = useState(false);
     const [addressOwner, setAddressOwner] = useState(false);
 
-
+    
     // Create client for Viem
+    const transport = http(`https://goerli.infura.io/v3/${process.env.INFURA_API_KEY}`)
     const client = createPublicClient({
         chain: goerli,
-        transport: https(),
+        transport: http(transport),
     })
 
     const getAddressOwner = async () => {
