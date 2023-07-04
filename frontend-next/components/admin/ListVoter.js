@@ -13,7 +13,7 @@ const ListVoter = ({newAddressVoterAdd, setNewAddressVoterAdd}) => {
     const transport = http(`https://goerli.infura.io/v3/${process.env.INFURA_API_KEY}`)
     const client = createPublicClient({
         chain: goerli,
-        transport: http(transport),
+        transport,
     })
 
     // Events
