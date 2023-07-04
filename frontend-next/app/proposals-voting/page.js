@@ -3,7 +3,7 @@ import { useThemeContext } from "@/context/theme"
 import { Flex, useToast,FormControl, FormLabel, Input, Button, VStack,Text, Grid, 
          GridItem, Heading, OrderedList, ListItem, Card, CardBody } from '@chakra-ui/react'
 import { useAccount } from 'wagmi'
-import { createPublicClient, http, parseAbiItem } from 'viem'
+import { createPublicClient, https, parseAbiItem } from 'viem'
 import { goerli } from 'viem/chains'
 import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
@@ -18,7 +18,7 @@ const addproposal = () => {
     // Create client for Viem
     const client = createPublicClient({
         chain: goerli,
-        transport: http(),
+        transport: https(),
     })
     const toast = useToast()
     // Events

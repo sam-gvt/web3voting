@@ -1,8 +1,8 @@
-import {List, ListIcon, ListItem, Container, useToast, Text } from '@chakra-ui/react';
+import {List, ListIcon, ListItem, Container, Text } from '@chakra-ui/react';
 import {CheckCircleIcon, RepeatIcon, SpinnerIcon} from '@chakra-ui/icons';
 
-import { createPublicClient, http, parseAbiItem } from 'viem'
-import { hardhat } from 'viem/chains'
+import { createPublicClient, https, parseAbiItem } from 'viem'
+import { goerli } from 'viem/chains'
 import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 
@@ -11,10 +11,9 @@ const ListVoter = ({newAddressVoterAdd, setNewAddressVoterAdd}) => {
 
     // Create client for Viem
     const client = createPublicClient({
-        chain: hardhat,
-        transport: http(),
+        chain: goerli,
+        transport: https(),
     })
-    const toast = useToast();
 
     // Events
     const [voterRegisteredEvents, setVoterRegisteredEvents] = useState([])

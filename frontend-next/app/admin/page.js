@@ -4,7 +4,7 @@ import { Flex, Heading } from '@chakra-ui/react';
 import { useAccount } from 'wagmi';
 import Contract from '../../public/Voting.json';
 import WhiteListForm from '@/components/admin/WhisteListForm';
-import { createPublicClient, http } from 'viem';
+import { createPublicClient, https } from 'viem';
 import { goerli } from 'viem/chains';
 
 import { useState, useEffect } from 'react';
@@ -25,7 +25,7 @@ const Admin = () => {
     // Create client for Viem
     const client = createPublicClient({
         chain: goerli,
-        transport: http(),
+        transport: https(),
     })
 
     const getAddressOwner = async () => {
