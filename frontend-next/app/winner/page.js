@@ -1,7 +1,7 @@
 "use client"
 import { Flex, Heading, Container, Text } from '@chakra-ui/react';
 import { useThemeContext } from '@/context/theme';
-import {createPublicClient, http, parseAbiItem } from 'viem';
+import {createPublicClient, https, parseAbiItem } from 'viem';
 import { goerli } from 'viem/chains';
 import Contract from '../../public/Voting.json';
 import { useState, useEffect } from 'react';
@@ -16,7 +16,7 @@ const Winner = () => {
   // Create client for Viem
   const client = createPublicClient({
     chain: goerli,
-    transport: http(),
+    transport: https(),
   })
 
   const getWinningProposalID = async () => {

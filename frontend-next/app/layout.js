@@ -10,13 +10,15 @@ import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { goerli } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react';
+import { infuraProvider } from 'wagmi/providers/infura'
 
 // Configure chains & providers with publicProvider 
 // we can add Infura, Alchemy ...
 const { chains, publicClient } = configureChains(
   [goerli],
   [
+    infuraProvider({ apiKey: 'c37e4705ebff4465bcd87cb0368be40c' }),
     publicProvider()
   ]
 );
